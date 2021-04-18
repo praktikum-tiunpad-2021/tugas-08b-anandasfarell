@@ -25,10 +25,7 @@ struct Queue {
   ElementPtr<T> Head;
   ElementPtr<T> Tail;
 };
-  
-template <typename T>
-Queue<T> q;
-
+ 
 /**
  * @brief membuat queue baru
  *
@@ -36,6 +33,8 @@ Queue<T> q;
  */
 template <typename T>
 Queue<T> new_queue() {
+  Queue<T> q;
+  q = new Queue<T>;
   q.Head = nullptr;
   q.Tail = nullptr;
 }
