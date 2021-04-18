@@ -73,6 +73,7 @@ void enqueue(Queue<T> &q, const T &value, int priority) {
       if(pHelp->next == nullptr)
         break;
       pRev = pHelp;
+      pHelp->next = newElement;
       pHelp = pHelp->next;
     }
   }
