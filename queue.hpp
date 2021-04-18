@@ -25,6 +25,8 @@ struct Queue {
   ElementPtr<T> Head;
   ElementPtr<T> Tail;
 };
+  
+template <typename T>
 using q = Queue<T> *;
 
 /**
