@@ -56,15 +56,14 @@ bool isEmpty(Queue<T> &q){
   
 template <typename T>
 void enqueue(Queue<T> &q, const T &value, int priority) {
-  ElementPtr<T> pRev = nullptr;
-  ElementPtr<T> pHelp = q.Head;
-  
   ElementPtr<T> newElement;
   newElement = new Element<T>;
   newElement->data = value;
   newElement->priority = priority;
   newElement->next = nullptr;
   
+  ElementPtr<T> pRev = nullptr;
+  ElementPtr<T> pHelp = q.Head;  
   
   if(isEmpty(q)){
     q.Head = newElement;
