@@ -69,7 +69,7 @@ void enqueue(Queue<T> &q, const T &value, int priority) {
     q.Head = newElement;
     q.Tail = newElement;
   } else{
-    while(newElement->priority <= pHelp->priority){
+    while(newElement->priority >= pHelp->priority){
       if(pHelp->next == nullptr)
         break;
       pRev = pHelp;
