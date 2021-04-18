@@ -33,8 +33,7 @@ struct Queue {
  */
 template <typename T>
 Queue<T> new_queue() {
-  Queue<T> q;
-  q = new Queue<T>;
+  Queue q;
   q.Head = nullptr;
   q.Tail = nullptr;
 }
@@ -63,7 +62,7 @@ void enqueue(Queue<T> &q, const T &value, int priority) {
   ElementPtr<T> newElement;
   newElement = new Element<T>;
   newElement->data = value;
-  newELement->priority = priority;
+  newElement->priority = priority;
   newElement->next = nullptr;
   
   
