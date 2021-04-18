@@ -46,8 +46,8 @@ Queue<T> new_queue() {
  * @param value     isi dari elemen.
  * @param priority  prioritas elemen yang menentukan urutan.
  */
-  
-bool isEmpty(Queue q){
+template <typename T>
+bool isEmpty(Queue<T> &q){
   if(q.Head == nullptr && q.Tail == nullptr){
     return true;
   } else{
@@ -60,7 +60,8 @@ void enqueue(Queue<T> &q, const T &value, int priority) {
   ElementPtr<T> pRev = nullptr;
   ElementPtr<T> pHelp = q.Head;
   
-  ElementPtr<T> newElement = new Element<T>;
+  ElementPtr<T> newElement;
+  newElement = new Element<T>;
   newElement->data = value;
   newELement->priority = priority;
   newElement->next = nullptr;
