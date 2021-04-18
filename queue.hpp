@@ -25,7 +25,7 @@ struct Queue {
   ElementPtr<T> Head;
   ElementPtr<T> Tail;
 };
-Queue q;
+using q = Queue<T> *;
 
 /**
  * @brief membuat queue baru
