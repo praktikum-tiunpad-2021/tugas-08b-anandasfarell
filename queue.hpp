@@ -89,8 +89,8 @@ void enqueue(Queue<T> &q, const T &value, int priority) {
   }
   //Insert Middle
   else{
-    pHelp->next = newElement;
-    newElement->next = pRev;
+    pRev->next = newElement;
+    newElement->next = pHelp;
   }
 }
 
