@@ -9,8 +9,11 @@ namespace priority_queue {
  */
 template <typename T>
 struct Element {
-  // Implementasikan di sini.
+  int data;
+  int priority;
+  Element *next;
 };
+typedef Element* pointer;
 
 template <typename T>
 using ElementPtr = Element<T> *;
@@ -20,8 +23,10 @@ using ElementPtr = Element<T> *;
  */
 template <typename T>
 struct Queue {
-  // Implementasikan di sini.
+  pointer Head;
+  pointer Tail;
 };
+Queue q;
 
 /**
  * @brief membuat queue baru
@@ -30,7 +35,8 @@ struct Queue {
  */
 template <typename T>
 Queue<T> new_queue() {
-  // Implementasikan di sini.
+  q.Head = nullptr;
+  q.Tail = nullptr;
 }
 
 /**
@@ -40,9 +46,53 @@ Queue<T> new_queue() {
  * @param value     isi dari elemen.
  * @param priority  prioritas elemen yang menentukan urutan.
  */
+  
+bool isEmpty(Queue q){
+  if(q.Head == nullptr && q.Tail == nullptr){
+    return true;
+  } else{
+    return false;
+  }
+}  
+  
 template <typename T>
 void enqueue(Queue<T> &q, const T &value, int priority) {
-  // Implementasikan di sini.
+  pointer pRev = nullptr;
+  pointer pHelp = q.Head;
+  
+  pointer newElement = new Element;
+  newElement->data = value;
+  newELement->priority = priority;
+  newElement->next = nullptr;
+  
+  
+  if(isEmpty(q)){
+    q.Head = newElement;
+    q.Tail = newElement;
+  } else{
+    while(newElement->priority >= pHelp->priority){
+      if(pHelp->next == nullptr)
+        break;
+      pRev = pHelp;
+      pHelp = pHelp->next;
+    }
+  }
+  
+  //Insert First
+  if(pHelp == q.Head && newElement->priority < pHelp->priority){
+    newElement->next = pHelp;
+    q.Head = newElement;
+  }
+  //Insert Last
+  else if(pHelp == q.Tail && newElement->priority > pHelp->priority){
+    pHelp->next = newElement;
+    q.Tail = newElement;
+  }
+  //Insert Middle
+  else{
+    pRev->next = newElement;
+    newElement->next = pHelp;
+  }
 }
 
 /**
@@ -53,7 +103,7 @@ void enqueue(Queue<T> &q, const T &value, int priority) {
  */
 template <typename T>
 T top(const Queue<T> &q) {
-  // Implementasikan di sini.
+  return q.Head->data;
 }
 
 /**
@@ -63,7 +113,18 @@ T top(const Queue<T> &q) {
  */
 template <typename T>
 void dequeue(Queue<T> &q) {
-  // Implementasikan di sini.
+  Element *delElement;
+  if(isEmpty(q)){
+    delElement = nullptr;
+  } else if(q.Head->next == nullptr){
+    delElement = q.Head;
+    q.Head = nullptr;
+    q.Tail = nullptr;
+  } else{
+    delElement = q.Head;
+    q.Head = q.Head->next;
+    delElement->next = nullptr;
+  }
 }
 
 }  // namespace priority_queue
