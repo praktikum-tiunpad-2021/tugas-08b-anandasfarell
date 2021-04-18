@@ -27,7 +27,7 @@ struct Queue {
 };
   
 template <typename T>
-using q = Queue<T> *;
+Queue<T> q;
 
 /**
  * @brief membuat queue baru
