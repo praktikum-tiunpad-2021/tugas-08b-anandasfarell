@@ -13,7 +13,6 @@ struct Element {
   int priority;
   Element *next;
 };
-typedef Element* pointer;
 
 template <typename T>
 using ElementPtr = Element<T> *;
@@ -23,8 +22,8 @@ using ElementPtr = Element<T> *;
  */
 template <typename T>
 struct Queue {
-  pointer Head;
-  pointer Tail;
+  ElementPtr Head;
+  ElementPtr Tail;
 };
 Queue q;
 
@@ -57,10 +56,10 @@ bool isEmpty(Queue q){
   
 template <typename T>
 void enqueue(Queue<T> &q, const T &value, int priority) {
-  pointer pRev = nullptr;
-  pointer pHelp = q.Head;
+  ElementPtr pRev = nullptr;
+  ElementPtr pHelp = q.Head;
   
-  pointer newElement = new Element;
+  ElementPtr newElement = new Element;
   newElement->data = value;
   newELement->priority = priority;
   newElement->next = nullptr;
