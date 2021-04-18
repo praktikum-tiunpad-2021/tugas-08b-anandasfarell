@@ -33,7 +33,7 @@ struct Queue {
  */
 template <typename T>
 Queue<T> new_queue() {
-  Queue q;
+  Queue<T> q;
   q.Head = nullptr;
   q.Tail = nullptr;
 }
