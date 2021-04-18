@@ -79,12 +79,12 @@ void enqueue(Queue<T> &q, const T &value, int priority) {
   }
   
   //Insert First
-  if(pHelp == q.Head && newElement->priority < pHelp->priority){
+  if(pHelp == q.Head && newElement->priority > pHelp->priority){
     newElement->next = pHelp;
     q.Head = newElement;
   }
   //Insert Last
-  else if(pHelp == q.Tail && newElement->priority > pHelp->priority){
+  else if(pHelp == q.Tail && newElement->priority < pHelp->priority){
     pHelp->next = newElement;
     q.Tail = newElement;
   }
