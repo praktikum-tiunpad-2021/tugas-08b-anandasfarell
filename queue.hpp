@@ -9,9 +9,9 @@ namespace priority_queue {
  */
 template <typename T>
 struct Element {
-  int data;
-  int priority;
-  Element *next;
+  T data;
+  T priority;
+  Element<T> *next;
 };
 
 template <typename T>
@@ -22,8 +22,8 @@ using ElementPtr = Element<T> *;
  */
 template <typename T>
 struct Queue {
-  ElementPtr Head;
-  ElementPtr Tail;
+  ElementPtr<T> Head;
+  ElementPtr<T> Tail;
 };
 Queue q;
 
@@ -56,10 +56,10 @@ bool isEmpty(Queue q){
   
 template <typename T>
 void enqueue(Queue<T> &q, const T &value, int priority) {
-  ElementPtr pRev = nullptr;
-  ElementPtr pHelp = q.Head;
+  ElementPtr<T> pRev = nullptr;
+  ElementPtr<T> pHelp = q.Head;
   
-  ElementPtr newElement = new Element;
+  ElementPtr<T> newElement = new Element<T>;
   newElement->data = value;
   newELement->priority = priority;
   newElement->next = nullptr;
@@ -112,7 +112,7 @@ T top(const Queue<T> &q) {
  */
 template <typename T>
 void dequeue(Queue<T> &q) {
-  Element *delElement;
+  Element<T> *delElement;
   if(isEmpty(q)){
     delElement = nullptr;
   } else if(q.Head->next == nullptr){
